@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Clothing Store</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="logo">
+            🛍️
+            <div>
+                <h2>My Clothing Store</h2>
+                <span>Fashion Collection</span>
+            </div>
+        </div>
+
+        <button class="cart-button">
+            🛒 Cart
+        </button>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-title">
+                NEW COLLECTION
+            </p>
+
+            <h1>
+                Style that<br>
+                fits you.
+            </h1>
+
+            <p>
+                Explore our latest clothing collection
+                and order directly through WhatsApp.
+            </p>
+
+            <a href="#products" class="shop-button">
+                Shop Now →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- SEARCH -->
+    <section class="catalog-section" id="products">
+
+        <div class="catalog-header">
+
+            <div>
+                <h2>Our Collection</h2>
+                <p>Choose your favourite style</p>
+            </div>
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="🔎 Search products..."
+                >
+
+                <select id="categoryFilter">
+                    <option value="all">
+                        All Categories
+                    </option>
+
+                    <option value="Shirts">
+                        Shirts
+                    </option>
+
+                    <option value="T-Shirts">
+                        T-Shirts
+                    </option>
+
+                    <option value="Kurtis">
+                        Kurtis
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+        <div
+            id="productContainer"
+            class="product-grid">
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h3>My Clothing Store</h3>
+
+        <p>
+            Fashion • Quality • Style
+        </p>
+
+        <p class="copyright">
+            © 2026 My Clothing Store
+        </p>
+
+    </footer>
+
+
+
+<!-- Product Details Modal -->
+<div id="productModal" class="product-modal">
+
+    <div class="product-modal-content">
+
+        <button id="closeModal" class="close-modal">
+            &times;
+        </button>
+
+
+        <!-- LEFT SIDE -->
+        <div class="modal-left">
+
+            <!-- Main Image -->
+            <div class="modal-image-gallery">
+
+                <button id="prevImage" class="gallery-arrow">
+                    &#10094;
+                </button>
+
+                <img
+                    id="modalImage"
+                    src=""
+                    alt="Product"
+                >
+
+                <button id="nextImage" class="gallery-arrow">
+                    &#10095;
+                </button>
+
+            </div>
+
+
+            <!-- Image Counter -->
+            <div
+                id="imageCounter"
+                class="image-counter">
+            </div>
+
+
+            <!-- Thumbnail Images -->
+            <div
+                id="thumbnailContainer"
+                class="thumbnail-container">
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="modal-product-info">
+
+            <h2 id="modalName"></h2>
+
+            <div
+                id="modalPrice"
+                class="modal-price">
+            </div>
+
+            <p>
+                <strong>Category:</strong>
+                <span id="modalCategory"></span>
+            </p>
+
+            <p>
+                <strong>Available Sizes:</strong>
+                <span id="modalSizes"></span>
+            </p>
+
+            <button
+                id="modalWhatsApp"
+                class="modal-whatsapp">
+                Order on WhatsApp
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
+

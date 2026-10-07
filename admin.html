@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login - My Clothing Store</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff7a18,
+                    #ff3d81,
+                    #7b2cff
+                );
+        }
+
+        .login-container {
+            width: 90%;
+            max-width: 400px;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+
+            margin-bottom: 20px;
+
+            border: 1px solid #ddd;
+            border-radius: 10px;
+
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+            border-radius: 10px;
+
+            background: #111;
+            color: white;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #333;
+        }
+
+        #message {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="login-container">
+
+    <h1>🔐 Admin Login</h1>
+
+    <p class="subtitle">
+        My Clothing Store
+    </p>
+
+
+    <label>
+        Email
+    </label>
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Enter admin email"
+    >
+
+
+    <label>
+        Password
+    </label>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Enter password"
+    >
+
+
+    <button onclick="login()">
+        Login
+    </button>
+
+
+    <div id="message"></div>
+
+</div>
+
+
+<!-- Supabase -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+const SUPABASE_URL =
+    "https://rusvskaresrhmevfrnse.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_2DtiHqMJKM-Olp0DJXsXHw_D0XpZmeN";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+
+async function login() {
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+
+    const message =
+        document.getElementById("message");
+
+
+    if (!email || !password) {
+
+        message.innerText =
+            "Please enter email and password.";
+
+        message.style.color = "red";
+
+        return;
+    }
+
+
+    message.innerText =
+        "Logging in...";
+
+    message.style.color = "black";
+
+
+    const { data, error } =
+        await supabaseClient.auth.signInWithPassword({
+
+            email: email,
+
+            password: password
+
+        });
+
+
+    if (error) {
+
+        console.error(error);
+
+        message.innerText =
+            "❌ " + error.message;
+
+        message.style.color = "red";
+
+        return;
+    }
+
+
+    console.log(
+        "Login successful",
+        data
+    );
+
+
+    window.location.href =
+        "admin-dashboard.html";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
