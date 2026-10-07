@@ -718,3 +718,10 @@ footer p {
     color: #7c3aed;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
 }
+
+.brand-logo {
+    width: 105px;
+    height: auto;
+    display: block;
+    margin: 0 14px;
+}
