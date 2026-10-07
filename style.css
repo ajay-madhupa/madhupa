@@ -696,4 +696,25 @@ footer p {
     }
 
 }
-/* Madhupa website */
+
+.product-info p {
+    margin: 10px 0;
+}
+
+.product-info .price {
+    margin-bottom: 18px;
+}
+
+.product-info p:not(.price) {
+    margin-bottom: 14px;
+}
+
+.brand-name {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-style: italic;
+    color: #7c3aed;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+}
