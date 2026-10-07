@@ -119,7 +119,7 @@ function displayProducts(products) {
                     Sizes: ${product.sizes}
                 </p>
 
-                <button class="whatsapp-btn">
+                <button class="whatsapp-button">
                     Order on WhatsApp
                 </button>
 
@@ -142,7 +142,7 @@ function displayProducts(products) {
 
         // WhatsApp button
         const whatsappButton =
-            card.querySelector(".whatsapp-btn");
+            card.querySelector(".whatsapp-button");
 
         whatsappButton.addEventListener(
             "click",
@@ -154,7 +154,7 @@ function displayProducts(products) {
                     `Hi, I am interested in ${product.name} - ₹${product.price}. Available sizes: ${product.sizes}`;
 
                 const whatsappUrl =
-                    `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+                    `https://wa.me/917981908542?text=${encodeURIComponent(message)}`;
 
                 window.open(
                     whatsappUrl,
@@ -272,7 +272,7 @@ function orderProduct(
 ) {
 
     const phoneNumber =
-        "919876543210";
+        "917981908542";
 
 
     const message =
@@ -533,7 +533,7 @@ function openProductModal(product) {
 
 
         const whatsappUrl =
-            `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+            `https://wa.me/917981908542?text=${encodeURIComponent(message)}`;
 
 
         window.open(
